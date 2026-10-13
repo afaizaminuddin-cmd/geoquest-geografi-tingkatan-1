@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoQuest: Ejen Geografi Tingkatan 1</title>
+<style>
+:root{--navy:#102747;--blue:#1769aa;--cyan:#51d6d0;--gold:#ffd166;--ink:#182638;--muted:#617187;--paper:#f4f8fc;--white:#fff;--green:#16835d;--red:#c0392b}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(135deg,#0e2444,#1769aa 55%,#18a6a6);color:var(--ink);min-height:100vh;padding:20px}
+.wrap{max-width:960px;margin:auto}.hero{color:white;text-align:center;padding:24px 12px 20px}.logo{font-size:3rem}.hero h1{margin:4px 0;font-size:clamp(1.8rem,4vw,3rem);letter-spacing:.02em}.hero p{margin:8px 0;color:#dcefff}.pill{display:inline-block;background:#ffffff20;border:1px solid #ffffff55;border-radius:999px;padding:6px 12px;font-size:.85rem}
+.panel{background:var(--white);border-radius:22px;padding:clamp(18px,4vw,32px);box-shadow:0 18px 55px #071a353d;margin:12px 0}.hidden{display:none!important}.intro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0}.mini{background:var(--paper);border-radius:14px;padding:14px}.mini strong{display:block;color:var(--blue);margin-bottom:4px}.field{display:flex;flex-direction:column;gap:7px;margin:14px 0}.field input{padding:13px 14px;border:2px solid #d7e2ef;border-radius:12px;font-size:1rem;width:100%}button{border:0;border-radius:12px;padding:12px 18px;font-weight:750;font-size:1rem;cursor:pointer;transition:transform .15s,opacity .15s}button:hover{transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}.primary{background:var(--blue);color:white}.secondary{background:#e8f1fa;color:var(--navy)}.gold{background:var(--gold);color:#342b12}.topline{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.stats{display:flex;gap:8px;flex-wrap:wrap}.stat{background:#edf5fc;border-radius:10px;padding:8px 12px;font-size:.9rem}.progress{height:10px;background:#e4edf6;border-radius:99px;overflow:hidden;margin:18px 0 8px}.progress div{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .25s}.station{color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem}.qnum{color:var(--muted);font-size:.9rem}.question{font-size:clamp(1.25rem,2.7vw,1.7rem);font-weight:800;line-height:1.35;margin:12px 0 20px}.answers{display:grid;gap:10px}.answer{width:100%;text-align:left;background:#f3f7fb;border:2px solid #e0e9f2;color:var(--ink);padding:14px;display:flex;gap:12px;align-items:flex-start}.answer .letter{flex:0 0 28px;height:28px;border-radius:8px;background:#dceafa;color:var(--navy);display:grid;place-items:center;font-weight:800}.answer.selected{border-color:var(--blue);background:#e7f2ff}.answer.correct{border-color:var(--green);background:#e7f8f0}.answer.wrong{border-color:var(--red);background:#fff0ee}.feedback{padding:12px 14px;border-radius:12px;margin-top:14px;font-weight:650}.feedback.good{background:#e7f8f0;color:#116244}.feedback.bad{background:#fff0ee;color:#8c281e}.explain{font-weight:400;font-size:.94rem;margin-top:5px}.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}.result{text-align:center}.score-ring{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;margin:20px auto;background:conic-gradient(var(--cyan) var(--score),#e8eef5 0);position:relative}.score-ring:before{content:"";position:absolute;inset:12px;background:white;border-radius:50%}.score-ring div{position:relative}.score-ring strong{display:block;font-size:2.2rem;color:var(--navy)}.score-ring span{font-size:.85rem;color:var(--muted)}.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:18px 0}.result-tile{background:var(--paper);border-radius:14px;padding:14px}.result-tile strong{font-size:1.45rem;display:block;color:var(--blue)}.review{margin-top:22px;text-align:left}.review details{border:1px solid #dfe8f1;border-radius:12px;margin:8px 0;padding:12px}.review summary{font-weight:750;cursor:pointer}.review .right{color:var(--green)}.review .wrong{color:var(--red)}.small{font-size:.88rem;color:var(--muted)}.badge{display:inline-block;border-radius:999px;padding:7px 12px;background:#fff3c4;color:#6d5100;font-weight:800}.footer{text-align:center;color:#d9e9fa;font-size:.8rem;padding:16px}
+@media(max-width:560px){body{padding:10px}.panel{border-radius:16px}.actions button{flex:1}.hero{padding-top:12px}}
+@media print{body{background:white;padding:0}.hero,.footer,#startPanel,#quizPanel .actions,#resultPanel .actions{display:none!important}.panel{box-shadow:none;border:1px solid #ddd}.hidden{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="logo">🌏🧭</div>
+    <div class="pill">PERMAINAN PEMBELAJARAN DIGITAL</div>
+    <h1>GEOQUEST</h1>
+    <p><strong>Misi Ejen Geografi Tingkatan 1</strong></p>
+    <p>Jawab 20 soalan • Kumpul markah • Buka lencana ejen</p>
+  </header>
+
+  <section class="panel" id="startPanel">
+    <h2>🕵️ Selamat datang, ejen!</h2>
+    <p>Anda akan melalui 4 stesen cabaran Geografi. Baca soalan dengan teliti dan pilih satu jawapan yang paling tepat.</p>
+    <div class="intro-grid">
+      <div class="mini"><strong>🧭 Stesen 1</strong>Arah & Kedudukan</div>
+      <div class="mini"><strong>🗺️ Stesen 2</strong>Peta & Malaysia</div>
+      <div class="mini"><strong>🌋 Stesen 3</strong>Bumi & Bentuk Muka Bumi</div>
+      <div class="mini"><strong>💧 Stesen 4</strong>Air & Alam Sekitar</div>
+    </div>
+    <div class="field"><label for="studentName"><strong>Nama murid</strong></label><input id="studentName" maxlength="100" placeholder="Masukkan nama penuh" autocomplete="name"></div>
+    <div class="field"><label for="studentClass"><strong>Kelas</strong></label><input id="studentClass" maxlength="40" placeholder="Contoh: 1 Alpha"></div>
+    <p class="small">Markah penuh ialah 20. Setiap jawapan betul mendapat 1 markah. Selepas menjawab, keputusan dan semakan jawapan akan dipaparkan.</p>
+    <button class="primary" id="startBtn">🚀 Mula Misi</button>
+  </section>
+
+  <section class="panel hidden" id="quizPanel" aria-live="polite">
+    <div class="topline">
+      <div><div class="station" id="stationName">STESEN 1</div><div class="qnum" id="questionNumber">Soalan 1 daripada 20</div></div>
+      <div class="stats"><div class="stat">⭐ Markah: <strong id="scoreNow">0</strong></div><div class="stat">🧩 Dijawab: <strong id="answeredNow">0</strong>/20</div></div>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <div class="question" id="questionText"></div>
+    <div class="answers" id="answers"></div>
+    <div class="feedback hidden" id="feedback"></div>
+    <div class="actions"><button class="secondary" id="quitBtn">Kembali ke mula</button><button class="primary" id="nextBtn" disabled>Jawapan seterusnya →</button></div>
+  </section>
+
+  <section class="panel hidden result" id="resultPanel">
+    <div style="font-size:3rem" id="resultEmoji">🏆</div>
+    <h2 id="resultTitle">Misi Selesai!</h2>
+    <p id="resultGreeting"></p>
+    <div class="score-ring" id="scoreRing" style="--score:0%"><div><strong id="finalScore">0/20</strong><span>MARKAH</span></div></div>
+    <div class="badge" id="rankBadge">🥉 Kadet Geografi</div>
+    <div class="result-grid">
+      <div class="result-tile"><strong id="percentScore">0%</strong><span>Peratus</span></div>
+      <div class="result-tile"><strong id="correctCount">0</strong><span>Jawapan betul</span></div>
+      <div class="result-tile"><strong id="wrongCount">0</strong><span>Jawapan perlu dibaiki</span></div>
+      <div class="result-tile"><strong id="duration">—</strong><span>Masa menjawab</span></div>
+    </div>
+    <p id="resultMessage"></p>
+    <div class="actions">
+      <button class="secondary" id="reviewBtn">📋 Semak jawapan</button>
+      <button class="secondary" id="printBtn">🖨️ Cetak / Simpan PDF</button>
+      <button class="primary" id="retryBtn">🔄 Cuba lagi</button>
+    </div>
+    <div class="panel" style="box-shadow:none;border:2px solid #dbe8f4;margin-top:18px;text-align:left">
+      <h3>📨 Hantar keputusan kepada cikgu</h3>
+      <p class="small">Tekan butang di bawah untuk menghantar nama, kelas dan keputusan anda kepada cikgu.</p>
+      <div class="actions"><button class="primary" id="submitResultBtn">📨 Hantar Keputusan</button></div>
+      <p class="small" id="submitStatus" aria-live="polite">Keputusan belum dihantar.</p>
+    </div>
+    <div class="review hidden" id="reviewPanel"><h3>Semakan 20 soalan</h3><div id="reviewList"></div></div>
+    <div class="actions"><button class="gold" id="copyBtn">📄 Salin keputusan</button><span class="small" id="copyStatus" aria-live="polite"></span></div>
+  </section>
+  <div class="footer">GeoQuest • Geografi Tingkatan 1 • Belajar sambil meneroka 🌱</div>
+</div>
+<script>
+const questions = [
+ {s:0,q:"Apakah arah yang bertentangan dengan arah timur?",a:["Utara","Barat","Selatan","Timur laut"],c:1,e:"Barat ialah arah yang bertentangan dengan timur."},
+ {s:0,q:"Matahari terbit dari arah mana?",a:["Barat","Utara","Timur","Selatan"],c:2,e:"Matahari kelihatan terbit di timur dan terbenam di barat."},
+ {s:0,q:"Berapakah bilangan arah mata angin utama dan perantaraan dalam lapan arah mata angin?",a:["4","6","8","12"],c:2,e:"Lapan arah mata angin merangkumi empat arah utama dan empat arah perantaraan."},
+ {s:0,q:"Alat yang digunakan untuk menentukan arah mata angin ialah…",a:["Termometer","Kompas","Pembaris","Jam randik"],c:1,e:"Kompas menunjukkan arah berdasarkan medan magnet bumi."},
+ {s:0,q:"Kedudukan surau di sebelah timur sekolah ialah contoh…",a:["Kedudukan relatif","Skala peta","Simbol fizikal","Bearing sudutan"],c:0,e:"Kedudukan relatif menerangkan lokasi sesuatu tempat berbanding tempat rujukan."},
+ {s:1,q:"Antara berikut, yang manakah contoh pandang darat fizikal?",a:["Jambatan","Jalan raya","Sungai","Bangunan sekolah"],c:2,e:"Sungai ialah ciri semula jadi atau pandang darat fizikal."},
+ {s:1,q:"Yang manakah contoh pandang darat budaya?",a:["Bukit","Hutan","Tasik","Masjid"],c:3,e:"Masjid ialah binaan manusia dan tergolong dalam pandang darat budaya."},
+ {s:1,q:"Apakah tujuan simbol digunakan dalam peta lakar?",a:["Menghias peta sahaja","Mewakili ciri atau tempat dengan ringkas","Menentukan cuaca","Mengukur suhu"],c:1,e:"Simbol memudahkan ciri dan lokasi ditunjukkan pada peta."},
+ {s:1,q:"Apakah ibu negara Malaysia?",a:["Putrajaya","Johor Bahru","Kuala Lumpur","Kuching"],c:2,e:"Kuala Lumpur ialah ibu negara Malaysia."},
+ {s:1,q:"Pusat pentadbiran Kerajaan Persekutuan Malaysia terletak di…",a:["Putrajaya","Kota Kinabalu","Ipoh","Melaka"],c:0,e:"Putrajaya ialah pusat pentadbiran Kerajaan Persekutuan."},
+ {s:2,q:"Lapisan paling luar struktur bumi ialah…",a:["Teras dalam","Teras luar","Mantel","Kerak bumi"],c:3,e:"Kerak bumi ialah lapisan paling luar."},
+ {s:2,q:"Antara berikut, yang manakah nama sebuah benua?",a:["Lautan Pasifik","Asia","Selat Melaka","Laut China Selatan"],c:1,e:"Asia ialah benua; pilihan lain ialah lautan, selat atau laut."},
+ {s:2,q:"Bentuk muka bumi yang tinggi dan biasanya mempunyai puncak ialah…",a:["Lurah","Dataran","Gunung","Delta"],c:2,e:"Gunung merupakan bentuk muka bumi yang tinggi."},
+ {s:2,q:"Apakah contoh pandang darat fizikal yang berkaitan dengan saliran?",a:["Lapangan terbang","Sungai","Kilang","Lebuh raya"],c:1,e:"Sungai ialah ciri saliran semula jadi."},
+ {s:2,q:"Mengapakah sungai penting kepada manusia?",a:["Menyebabkan semua kawasan kering","Membekalkan air dan menyokong aktiviti ekonomi","Menghalang semua pengangkutan","Mengurangkan bekalan air"],c:1,e:"Sungai membekalkan air dan menyokong pertanian, perikanan serta aktiviti lain."},
+ {s:3,q:"Antara berikut, yang manakah sumber air?",a:["Sungai","Plastik","Asap","Pasir kering"],c:0,e:"Sungai merupakan sumber air permukaan."},
+ {s:3,q:"Antara berikut, yang manakah boleh menyebabkan krisis air?",a:["Penggunaan air secara berhemah","Pencemaran sumber air","Membaiki paip bocor","Mengumpul air hujan"],c:1,e:"Pencemaran menjadikan sumber air tidak selamat atau sukar digunakan."},
+ {s:3,q:"Apakah amalan yang membantu menjimatkan air?",a:["Membiarkan paip terbuka","Mandi terlalu lama","Menutup paip ketika memberus gigi","Mencuci halaman setiap jam"],c:2,e:"Menutup paip ketika tidak digunakan dapat mengurangkan pembaziran."},
+ {s:3,q:"Yang manakah contoh sisa domestik?",a:["Sisa makanan dari rumah","Awan","Cahaya matahari","Angin"],c:0,e:"Sisa makanan daripada aktiviti rumah tangga ialah sisa domestik."},
+ {s:3,q:"Apakah tindakan terbaik untuk mengurangkan sisa domestik?",a:["Membuang sampah ke sungai","Membakar semua sampah secara terbuka","Menggunakan barangan sekali sahaja","Mengasingkan sisa dan mengamalkan 3R"],c:3,e:"Amalan mengurangkan, guna semula dan kitar semula membantu mengurus sisa domestik."}
+];
+const stationNames=["🧭 Stesen 1: Arah & Kedudukan","🗺️ Stesen 2: Peta & Malaysia","🌋 Stesen 3: Bumi & Bentuk Muka Bumi","💧 Stesen 4: Air & Alam Sekitar"];
+let order=[], index=0, score=0, answersChosen=[], startedAt=0, student="", className="", locked=false;
+const $=id=>document.getElementById(id);
+function show(id){$(id).classList.remove("hidden")}function hide(id){$(id).classList.add("hidden")}
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw1cXk4yaIuDee-MapG7yD6LXXiZBc3DKxvCdEzyrIaMr1rdQLLz-8KQA9kHXSnhokR/exec";
+async function submitResult(){
+ const endpoint=APPS_SCRIPT_URL;
+ if(answersChosen.length!==questions.length){alert("Sila selesaikan semua soalan dahulu.");return}
+ const payload={name:student,className:className,score:score,total:questions.length,percentage:Math.round(score/questions.length*100),correct:score,wrong:questions.length-score,duration:$("duration").textContent,rank:$("rankBadge").textContent,submittedAt:new Date().toISOString(),source:"GeoQuest Geografi Tingkatan 1"};
+ const btn=$("submitResultBtn"),status=$("submitStatus");btn.disabled=true;btn.textContent="Menghantar…";status.textContent="Sedang menghantar keputusan…";
+ try{
+   // Apps Script Web App accepts a simple POST. no-cors avoids preflight; browser cannot read the response.
+   await fetch(endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
+   status.textContent="Permintaan penghantaran telah dihantar. Sila semak pengesahan pada helaian Google Sheets atau minta cikgu menyemaknya.";
+   status.style.color="#116244";
+ }catch(err){status.textContent="Penghantaran gagal. Semak sambungan internet dan URL Web App, kemudian cuba lagi.";status.style.color="#8c281e"}
+ finally{btn.disabled=false;btn.textContent="📨 Hantar Keputusan"}
+}
+function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function begin(){student=$("studentName").value.trim();className=$("studentClass").value.trim();if(!student){$("studentName").focus();alert("Sila masukkan nama murid terlebih dahulu.");return}
+ order=shuffle(questions.map((q,i)=>i));index=0;score=0;answersChosen=[];startedAt=Date.now();locked=false;hide("startPanel");hide("resultPanel");show("quizPanel");renderQuestion()}
+function renderQuestion(){locked=false;const q=questions[order[index]];$("stationName").textContent=stationNames[q.s];$("questionNumber").textContent=`Soalan ${index+1} daripada ${questions.length}`;$("questionText").textContent=q.q;$("scoreNow").textContent=score;$("answeredNow").textContent=answersChosen.length;$("progressBar").style.width=`${index/questions.length*100}%`;$("answers").innerHTML="";hide("feedback");$("nextBtn").disabled=true;$("nextBtn").textContent=index===questions.length-1?"Lihat keputusan 🏆":"Jawapan seterusnya →";
+ q.a.forEach((txt,i)=>{const b=document.createElement("button");b.className="answer";b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${txt}</span>`;b.addEventListener("click",()=>choose(i));$("answers").appendChild(b)})}
+function choose(choice){if(locked)return;locked=true;const q=questions[order[index]],correct=choice===q.c;if(correct)score++;answersChosen[index]={qIndex:order[index],choice,correct};[...$("answers").children].forEach((b,i)=>{b.disabled=true;if(i===q.c)b.classList.add("correct");if(i===choice&&!correct)b.classList.add("wrong")});$("scoreNow").textContent=score;$("answeredNow").textContent=answersChosen.length;$("progressBar").style.width=`${(index+1)/questions.length*100}%`;const f=$("feedback");f.className="feedback "+(correct?"good":"bad");f.innerHTML=`${correct?"✅ Betul!":"❌ Belum tepat."}<div class="explain">${q.e}</div>`;show("feedback");$("nextBtn").disabled=false}
+function next(){if(!locked)return;if(index<questions.length-1){index++;renderQuestion()}else finish()}
+function finish(){hide("quizPanel");show("resultPanel");const correct=score,wrong=questions.length-score,pct=Math.round(score/questions.length*100),seconds=Math.max(0,Math.round((Date.now()-startedAt)/1000));const mins=Math.floor(seconds/60),secs=seconds%60;$("finalScore").textContent=`${score}/20`;$("percentScore").textContent=pct+"%";$("correctCount").textContent=correct;$("wrongCount").textContent=wrong;$("duration").textContent=`${mins}m ${secs}s`;$("scoreRing").style.setProperty("--score",pct+"%");$("resultGreeting").textContent=`Tahniah, ${student}${className?" ("+className+")":""}! Anda telah menyelesaikan semua misi.`;let rank,emoji,title,msg;if(pct>=90){rank="🏆 Ejen Geografi Elit";emoji="🏆";title="Misi Cemerlang!";msg="Hebat! Pengetahuan geografi anda sangat mantap."}else if(pct>=75){rank="🥇 Ejen Pakar";emoji="🥇";title="Misi Berjaya!";msg="Bagus! Teruskan usaha untuk menguasai semua topik."}else if(pct>=50){rank="🥈 Ejen Muda";emoji="🧭";title="Misi Hampir Selesai";msg="Usaha yang baik. Semak jawapan yang salah dan cuba lagi."}else{rank="🌱 Kadet Geografi";emoji="🌱";title="Latihan Diteruskan";msg="Jangan berputus asa. Baca penerangan dan cuba semula."}$("rankBadge").textContent=rank;$("resultEmoji").textContent=emoji;$("resultTitle").textContent=title;$("resultMessage").textContent=msg;buildReview()}
+function buildReview(){const list=$("reviewList");list.innerHTML="";answersChosen.forEach((ans,i)=>{const q=questions[ans.qIndex],d=document.createElement("details"),sum=document.createElement("summary"),body=document.createElement("div");sum.textContent=`${i+1}. ${q.q}`;body.innerHTML=`<p class="${ans.correct?"right":"wrong"}"><strong>${ans.correct?"Betul":"Jawapan anda"}:</strong> ${q.a[ans.choice]}</p>${ans.correct?"":`<p><strong>Jawapan betul:</strong> ${q.a[q.c]}</p>`}<p class="small">${q.e}</p>`;d.append(sum,body);list.appendChild(d)})}
+function reset(){hide("quizPanel");hide("resultPanel");hide("reviewPanel");show("startPanel");$("studentName").value=student;$("studentClass").value=className;window.scrollTo({top:0,behavior:"smooth"})}
+function copyResult(){const pct=Math.round(score/20*100);const textResult=`KEPUTUSAN GEOQUEST — GEOGRAFI TINGKATAN 1\nNama: ${student}\nKelas: ${className||"-"}\nMarkah: ${score}/20\nPeratus: ${pct}%\nJawapan betul: ${score}\nJawapan salah: ${20-score}\nLencana: ${$("rankBadge").textContent}\nMasa: ${$("duration").textContent}`;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(textResult).then(()=>$("copyStatus").textContent="Keputusan disalin!").catch(()=>fallbackCopy(textResult))}else fallbackCopy(textResult)}
+function fallbackCopy(txt){const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");$("copyStatus").textContent="Keputusan disalin!"}catch(e){$("copyStatus").textContent="Sila salin teks keputusan secara manual."}ta.remove()}
+$("startBtn").addEventListener("click",begin);$("nextBtn").addEventListener("click",next);$("submitResultBtn").addEventListener("click",submitResult);$("quitBtn").addEventListener("click",()=>{if(confirm("Kembali ke halaman mula? Kemajuan misi ini akan hilang."))reset()});$("retryBtn").addEventListener("click",reset);$("reviewBtn").addEventListener("click",()=>{const p=$("reviewPanel");p.classList.toggle("hidden");$("reviewBtn").textContent=p.classList.contains("hidden")?"📋 Semak jawapan":"🙈 Tutup semakan"});$("printBtn").addEventListener("click",()=>window.print());$("copyBtn").addEventListener("click",copyResult);$("studentName").addEventListener("keydown",e=>{if(e.key==="Enter")begin()});
+</script>
+</body>
+</html>
